@@ -2,6 +2,8 @@
 
 ![Java](https://img.shields.io/badge/Java-17%2B-orange?logo=java)
 ![Swing](https://img.shields.io/badge/Swing-Java%20GUI-blue?logo=java)
+![Stars](https://img.shields.io/github/stars/htooaungphyolwin/Markdown-Editor-Swing?style=social)
+![Watchers](https://img.shields.io/github/watchers/htooaungphyolwin/Markdown-Editor-Swing?style=social)
 
 ![Screenshot 1](images/ss-1.png)
 ![Screenshot 2](images/ss-2.png)
