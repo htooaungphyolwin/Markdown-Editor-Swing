@@ -8,6 +8,7 @@ import com.mdeditor.preview.ThemeManager;
 import com.mdeditor.ui.reading.ReadingManager;
 import com.mdeditor.util.KeyboardShortcuts;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -19,8 +20,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
+import javax.swing.JTable;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
@@ -498,31 +501,56 @@ public class MainFrame extends JFrame {
     }
 
     private void showCheatsheet() {
-        String cheatsheet = """
-            # Markdown Cheatsheet
+        // Create table with shortcut data
+        String[] columnNames = {"Action", "Shortcut"};
+        Object[][] data = {
+            {"New", "Ctrl+N"},
+            {"Open", "Ctrl+O"},
+            {"Save", "Ctrl+S"},
+            {"Save As", ""},
+            {"Export HTML", "Ctrl+E"},
+            {"Print", "Ctrl+P"},
+            {"Undo", "Ctrl+Z"},
+            {"Redo", "Ctrl+Y"},
+            {"Cut", "Ctrl+X"},
+            {"Copy", "Ctrl+C"},
+            {"Paste", "Ctrl+V"},
+            {"Find", "Ctrl+F"},
+            {"Find & Replace", "Ctrl+H"},
+            {"Select All", "Ctrl+A"},
+            {"Bold", "Ctrl+B"},
+            {"Italic", "Ctrl+I"},
+            {"Code", "Ctrl+K"},
+            {"Strikethrough", ""},
+            {"Heading 1", ""},
+            {"Heading 2", ""},
+            {"Heading 3", ""},
+            {"Heading 4", ""},
+            {"Heading 5", ""},
+            {"Heading 6", ""},
+            {"Link", ""},
+            {"Image", ""},
+            {"Table", ""},
+            {"Bullet List", ""},
+            {"Ordered List", ""},
+            {"Task List", ""},
+            {"Blockquote", ""},
+            {"Horizontal Rule", ""},
+            {"Indent", ""},
+            {"Toggle Preview", "Ctrl+Shift+P"},
+            {"Toggle Reading Mode", "Ctrl+Shift+R"}
+        };
 
-            **Bold**      `**text**`
-            *Italic*      `*text*`
-            `Code`        `` `code` ``
-            ~~Strike~~    `~~text~~`
-
-            # Heading 1   `# text`
-            ## Heading 2  `## text`
-
-            [Link](url)   `[text](url)`
-            ![Image](src) `![alt](src)`
-
-            - Bullet list `- item`
-            1. Ordered    `1. item`
-            - [ ] Task    `- [ ] task`
-            > Blockquote  `> text`
-
-            ````code block`  ``` `` `code `````
-            --- Horizontal  `---`
-            | Table |       `| col | col |`
-            """;
-
-        JOptionPane.showMessageDialog(this, cheatsheet, "Markdown Cheatsheet", JOptionPane.INFORMATION_MESSAGE);
+        JTable table = new JTable(data, columnNames);
+        table.setFillsViewportHeight(true);
+        table.setPreferredScrollableViewportSize(new Dimension(500, 300));
+        
+        // Make table not editable
+        table.setDefaultEditor(Object.class, null);
+        
+        JScrollPane scrollPane = new JScrollPane(table);
+        
+        JOptionPane.showMessageDialog(this, scrollPane, "Keyboard Shortcuts", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void showAbout() {
