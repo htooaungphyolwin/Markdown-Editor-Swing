@@ -212,6 +212,7 @@ public class MainFrame extends JFrame {
         // Help menu
         JMenu helpMenu = new JMenu("Help");
         helpMenu.add(createMenuItem("Keyboard Shortcuts", null, e -> showKeyboardShortcuts()));
+        helpMenu.add(createMenuItem("Markdown Cheatsheet", null, e -> showCheatsheet()));
         helpMenu.add(new JSeparator());
         helpMenu.add(createMenuItem("About", null, e -> showAbout()));
         menuBar.add(helpMenu);
@@ -551,6 +552,34 @@ public class MainFrame extends JFrame {
         JScrollPane scrollPane = new JScrollPane(table);
         
         JOptionPane.showMessageDialog(this, scrollPane, "Keyboard Shortcuts", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void showCheatsheet() {
+        String cheatsheet = """
+            # Markdown Cheatsheet
+
+            **Bold**      `**text**`
+            *Italic*      `*text*`
+            `Code`        `` `code` ``
+            ~~Strike~~    `~~text~~`
+
+            # Heading 1   `# text`
+            ## Heading 2  `## text`
+
+            [Link](url)   `[text](url)`
+            ![Image](src) `![alt](src)`
+
+            - Bullet list `- item`
+            1. Ordered    `1. item`
+            - [ ] Task    `- [ ] task`
+            > Blockquote  `> text`
+
+            ````code block`  ``` `` `code `````
+            --- Horizontal  `---`
+            | Table |       `| col | col |`
+            """;
+
+        JOptionPane.showMessageDialog(this, cheatsheet, "Markdown Cheatsheet", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void showAbout() {
