@@ -211,7 +211,7 @@ public class MainFrame extends JFrame {
 
         // Help menu
         JMenu helpMenu = new JMenu("Help");
-        helpMenu.add(createMenuItem("Markdown Cheatsheet", null, e -> showCheatsheet()));
+        helpMenu.add(createMenuItem("Keyboard Shortcuts", null, e -> showKeyboardShortcuts()));
         helpMenu.add(new JSeparator());
         helpMenu.add(createMenuItem("About", null, e -> showAbout()));
         menuBar.add(helpMenu);
@@ -500,7 +500,7 @@ public class MainFrame extends JFrame {
         }
     }
 
-    private void showCheatsheet() {
+    private void showKeyboardShortcuts() {
         // Create table with shortcut data
         String[] columnNames = {"Action", "Shortcut"};
         Object[][] data = {
