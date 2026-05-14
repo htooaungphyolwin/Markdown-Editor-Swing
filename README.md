@@ -1,5 +1,11 @@
 # Markdown Editor
 
+![Java](https://img.shields.io/badge/Java-17%2B-orange?logo=java)
+![Swing](https://img.shields.io/badge/Swing-Java%20GUI-blue?logo=java)
+
+![Screenshot 1](images/ss-1.png)
+![Screenshot 2](images/ss-2.png)
+
 A desktop Markdown editor with live HTML preview, built with Java Swing and [flexmark](https://github.com/vsch/flexmark-java).
 
 ## Features

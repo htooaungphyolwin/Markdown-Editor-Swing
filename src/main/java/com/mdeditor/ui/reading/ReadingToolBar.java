@@ -39,9 +39,7 @@ public class ReadingToolBar extends JToolBar {
 
         addSeparator();
 
-        JComboBox<String> themeCombo = new JComboBox<>(new String[]{
-                ThemeManager.THEME_LIGHT, ThemeManager.THEME_DARK, ThemeManager.THEME_SEPIA
-        });
+        JComboBox<String> themeCombo = new JComboBox<>(themeManager.getAllThemes());
         themeCombo.setSelectedItem(themeManager.getCurrentTheme());
         themeCombo.addActionListener(e -> {
             String selected = (String) themeCombo.getSelectedItem();

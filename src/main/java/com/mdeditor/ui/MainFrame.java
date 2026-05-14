@@ -195,7 +195,7 @@ public class MainFrame extends JFrame {
 
         viewMenu.add(new JSeparator());
         JMenu themeMenu = new JMenu("Theme");
-        for (String theme : new String[]{ThemeManager.THEME_LIGHT, ThemeManager.THEME_DARK, ThemeManager.THEME_SEPIA}) {
+        for (String theme : previewPanel.getThemeManager().getAllThemes()) {
             JMenuItem item = new JMenuItem(theme);
             item.addActionListener(e -> {
                 previewPanel.applyTheme(theme);

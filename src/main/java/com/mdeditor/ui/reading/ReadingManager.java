@@ -180,10 +180,9 @@ public class ReadingManager {
     private void syncReaderContent() {
         String markdown = editorPanel.getText();
         String html = markdownProcessor.toHtml(markdown);
-        String styled = previewPanel.getThemeManager().wrapWithTheme(html, documentBase);
 
-        if (readingFrame != null && readingFrame.isVisible()) {
-            readingFrame.setHtmlContent(styled);
+        if (readingFrame != null) {
+            readingFrame.setContent(html, documentBase);
             if (documentBase != null) {
                 readingFrame.setDocumentBase(documentBase);
             }
